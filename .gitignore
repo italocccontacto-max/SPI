@@ -1,0 +1,18 @@
+# Gradle
+.gradle/
+**/build/
+
+# Kotlin
+**/.kotlin/
+
+# Local Android/IDE files
+local.properties
+.idea/
+*.iml
+
+# Firebase local files
+firebase-debug.log
+firebase-debug.*.log
+
+# Generated APKs
+*.apk

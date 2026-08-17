@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+check(){ local label="$1"; shift; if "$@" >/dev/null 2>&1; then printf 'PASS  %s\n' "$label"; else printf 'FAIL  %s\n' "$label" >&2; exit 1; fi; }
+UI=core-ui/src/main/java/com/sistemapersonal/ui/components
+APP=app-personal/src/main/java/com/centinela/app
+check "01 one root energy provider" grep -q "VisualEnergyProvider(visualSystem)" "$APP/MainActivity.kt"
+check "01 no silent energy fallback" grep -q "must be provided by the application root" "$UI/VisualSystem.kt"
+check "02 volumetric radial light" grep -q "Brush.radialGradient" "$UI/VisualSystem.kt"
+check "03 differentiated depth layers" grep -q "drawAtmosphereVolume" "$UI/HudBackground.kt"
+check "04 navigation-triggered assembly" grep -q "arrayOf(assemblyKey, system.transitionToken)" "$UI/AngularPanel.kt"
+check "04 finite assembly animation" grep -q "assemblyProgress.animateTo(1f" "$UI/AngularPanel.kt"
+check "05 iconographic navigation" grep -q "drawModuleGlyph" "$UI/NavigationRailSP.kt"
+check "05 real rotary module selection" grep -q "navigation.rotary" "$UI/NavigationRailSP.kt"
+check "06 per-control state machine" grep -q "mutableStateMapOf<String, InstrumentState>" "$UI/VisualSystem.kt"
+check "06 focus/active/success/warning/error events" grep -q "InstrumentEvent.TOGGLE_OFF" "$UI/VisualSystem.kt"
+check "06 real error event integration" grep -q "InstrumentEvent.ERROR" "$APP/ui/screens/GuardianScreen.kt"
+check "07 PRESS/TOGGLE/ROTARY primitive" grep -q "PRESS, TOGGLE, ROTARY" "$UI/InstrumentControl.kt"
+check "07 real toggle use" grep -q "InstrumentMode.TOGGLE" "$APP/ui/screens/GuardianScreen.kt"
+check "07 real press use" grep -q "mode = InstrumentMode.PRESS" "$UI/GlowButton.kt"
+check "07 real rotary use" grep -q "mode = InstrumentMode.ROTARY" "$UI/NavigationRailSP.kt"
+check "08 12 module hero branches" test "$(grep -c 'Modulo\.' "$UI/ModuleHero.kt")" -ge 12
+check "09 animation coverage" grep -q "rememberInfiniteTransition" "$UI/VisualSystem.kt"
+check "10 no autonomous micro-glitch" bash -c "! grep -q 'microGlitch' '$UI/VisualSystem.kt'"
+check "10 contextual event glitch" grep -q "glitchLevel = (glitchLevel +" "$UI/VisualSystem.kt"
+check "11 explicit negative space shell" grep -q "1f to Void.copy(alpha = 0.86f)" "$UI/VisualSystem.kt"
+check "12 donut physical gauge" grep -q "val tip = Offset" "$UI/Charts.kt"
+check "12 bar physical level rail" grep -q "Vertical instrument scale" "$UI/Charts.kt"
+check "12 radar acquisition sweep" grep -q "val sweep" "$UI/Charts.kt"
+check "12 waveform trigger" grep -q "triggerX" "$UI/Charts.kt"
+check "12 heatmap probe" grep -q "val probe" "$UI/Charts.kt"
+check "13 residual interaction trail" grep -q "system.residual" "$UI/VisualSystem.kt"
+check "13 physical interaction event" grep -q "system.physicalPress" "$UI/InstrumentControl.kt"
+echo "OK: 13/13 source correspondence checks passed."

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -u
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+fail=0
+check(){ local label="$1"; shift; if "$@"; then printf 'PASS  %s\n' "$label"; else printf 'FAIL  %s\n' "$label"; fail=1; fi; }
+UI="$ROOT/core-ui/src/main/java/com/sistemapersonal/ui/components"
+APP="$ROOT/app-personal/src/main/java/com/centinela/app"
+check '#1 single controller provider root' grep -q 'VisualEnergyProvider(visualSystem)' "$APP/MainActivity.kt"
+check '#1 no silent LocalVisualEnergy fallback' grep -q 'must be provided by the application root' "$UI/VisualSystem.kt"
+check '#4 event-keyed assembly' grep -q 'arrayOf(assemblyKey, system.transitionToken)' "$UI/AngularPanel.kt"
+check '#5 real rotary drag' grep -q 'detectDragGestures' "$UI/InstrumentControl.kt"
+check '#5 rotary drives modules' grep -q 'navigation.rotary' "$UI/NavigationRailSP.kt"
+check '#6 state map per control' grep -q 'instrumentStates = mutableStateMapOf' "$UI/VisualSystem.kt"
+check '#6 real error event integration' grep -q 'InstrumentEvent.ERROR' "$APP/ui/screens/GuardianScreen.kt"
+check '#7 real toggle use' grep -q 'InstrumentMode.TOGGLE' "$APP/ui/screens/GuardianScreen.kt"
+check '#7 press + toggle + rotary modes exist' bash -c "grep -q 'enum class InstrumentMode' '$UI/InstrumentControl.kt' && grep -q 'PRESS, TOGGLE, ROTARY' '$UI/InstrumentControl.kt'"
+check '#10 autonomous glitch removed' bash -c "! grep -q 'microGlitch' '$UI/VisualSystem.kt'"
+check '#10 glitch remains event-driven' grep -q 'glitchLevel = (glitchLevel +' "$UI/VisualSystem.kt"
+check '#12 donut instrument mechanics' grep -q 'tip = Offset' "$UI/Charts.kt"
+check '#12 radar acquisition sweep' grep -q 'sweep' "$UI/Charts.kt"
+check '#12 waveform trigger' grep -q 'triggerX' "$UI/Charts.kt"
+check '#12 heatmap probe/crosshair' grep -q 'probe' "$UI/Charts.kt"
+check '#12 bar level instrument rail' grep -q 'Vertical instrument scale' "$UI/Charts.kt"
+check '#13 residual rendered' grep -q 'system.residual' "$UI/VisualSystem.kt"
+printf '\nIndependent source audit: %s\n' "$([ $fail -eq 0 ] && echo PASS || echo FAIL)"
+exit "$fail"

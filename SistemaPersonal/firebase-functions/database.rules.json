@@ -1,0 +1,47 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "pairingCodes": {
+      "$code": {
+        ".read": false,
+        ".write": false
+      }
+    },
+    "familias": {
+      "$familyId": {
+        ".read": false,
+        ".write": false,
+        "members": {
+          ".read": "auth != null && auth.token.familyId === $familyId && auth.token.familyRole === 'owner'",
+          ".write": false,
+          "$uid": {
+            ".read": "auth != null && auth.token.familyId === $familyId && auth.token.familyRole === 'owner'",
+            ".write": false,
+            ".validate": "newData.hasChildren(['role', 'createdAt']) && newData.child('role').isString() && (newData.child('role').val() === 'owner' || newData.child('role').val() === 'member') && newData.child('createdAt').isNumber()"
+          }
+        },
+        "eventos": {
+          ".read": "auth != null && auth.token.familyId === $familyId && (auth.token.familyRole === 'owner' || auth.token.familyRole === 'member')",
+          ".indexOn": ["timestamp"],
+          "$eventoId": {
+            ".write": "auth != null && auth.token.familyId === $familyId && auth.token.familyRole === 'owner' && !data.exists()",
+            ".validate": "newData.hasChildren(['tipo', 'timestamp', 'resumen']) && newData.child('tipo').isString() && (newData.child('tipo').val() === 'app_abierta' || newData.child('tipo').val() === 'screenshot' || newData.child('tipo').val() === 'racha' || newData.child('tipo').val() === 'logro' || newData.child('tipo').val() === 'fallo') && newData.child('timestamp').isNumber() && newData.child('timestamp').val() > 0 && newData.child('resumen').isString() && newData.child('resumen').val().length > 0 && newData.child('resumen').val().length <= 500 && (!newData.hasChildren(['extra']) || newData.child('extra').hasChildren())"
+          }
+        },
+        "estado_actual": {
+          ".read": "auth != null && auth.token.familyId === $familyId && (auth.token.familyRole === 'owner' || auth.token.familyRole === 'member')",
+          ".write": "auth != null && auth.token.familyId === $familyId && auth.token.familyRole === 'owner'"
+        },
+        "tokens": {
+          ".read": false,
+          "$uid": {
+            ".read": false,
+            ".write": "auth != null && auth.uid === $uid && auth.token.familyId === $familyId && auth.token.familyRole === 'member'",
+            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 4096"
+          }
+        }
+      }
+    }
+  }
+}

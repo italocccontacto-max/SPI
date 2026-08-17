@@ -1,0 +1,17 @@
+{
+  "functions": [
+    {
+      "source": "firebase-functions/functions",
+      "codebase": "default",
+      "runtime": "nodejs22",
+      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"],
+      "predeploy": ["npm --prefix \"$RESOURCE_DIR\" run build && npm --prefix \"$RESOURCE_DIR\" run test:contract"]
+    }
+  ],
+  "database": {
+    "rules": "firebase-functions/database.rules.json"
+  },
+  "storage": {
+    "rules": "firebase-functions/storage.rules"
+  }
+}

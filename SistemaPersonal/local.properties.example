@@ -1,0 +1,10 @@
+# Firebase / provisioning build configuration.
+# Do NOT commit real values to source control.
+# Provide these values via environment variables or -Pkey=value to Gradle.
+FIREBASE_API_KEY=
+FIREBASE_APP_ID=
+FIREBASE_PROJECT_ID=
+FIREBASE_DATABASE_URL=
+FIREBASE_STORAGE_BUCKET=
+PROVISIONING_APK_DOWNLOAD_URL=
+PROVISIONING_SIGNATURE_CHECKSUM=

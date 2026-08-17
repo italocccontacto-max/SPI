@@ -1,0 +1,448 @@
+{
+  "metadata": {
+    "proyecto": "XI CALORIE COUNTER",
+    "unidad_base": "100 g",
+    "nota": "Valores tomados exactamente de la tabla proporcionada por el usuario. Donde no existe valor en crudo/seco o cocido, se deja null."
+  },
+  "categorias": [
+    {
+      "nombre": "Proteínas",
+      "alimentos": [
+        {
+          "nombre": "Huevo",
+          "crudo_seco": null,
+          "cocido": [
+            {
+              "preparacion": "hervido",
+              "kcal": 146,
+              "proteinas": 13.3,
+              "carbohidratos": 0.6,
+              "grasas": 9.5
+            },
+            {
+              "preparacion": "frito",
+              "kcal": 240,
+              "proteinas": 15.6,
+              "carbohidratos": 1.2,
+              "grasas": 18.6
+            }
+          ]
+        },
+        {
+          "nombre": "Pollo (pechuga)",
+          "crudo_seco": {
+            "kcal": 120,
+            "proteinas": 22.5,
+            "carbohidratos": 0,
+            "grasas": 2.6
+          },
+          "cocido": [
+            {
+              "preparacion": "grillada",
+              "kcal": 159,
+              "proteinas": 32,
+              "carbohidratos": 0,
+              "grasas": 2.5
+            }
+          ]
+        },
+        {
+          "nombre": "Pescado (tilapia)",
+          "crudo_seco": {
+            "kcal": 96,
+            "proteinas": 20.08,
+            "carbohidratos": 0,
+            "grasas": 1.7
+          },
+          "cocido": [
+            {
+              "kcal": 108,
+              "proteinas": 22.2,
+              "carbohidratos": 0,
+              "grasas": 2.07
+            }
+          ]
+        },
+        {
+          "nombre": "Atún",
+          "crudo_seco": null,
+          "cocido": [
+            {
+              "kcal": 166,
+              "proteinas": 28.4,
+              "carbohidratos": 0,
+              "grasas": 5.8
+            }
+          ]
+        },
+        {
+          "nombre": "Leche (entera)",
+          "crudo_seco": {
+            "kcal": 61,
+            "proteinas": 3.2,
+            "carbohidratos": 4.8,
+            "grasas": 3.3
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Jurel",
+          "crudo_seco": {
+            "kcal": 146,
+            "proteinas": 23.14,
+            "carbohidratos": 0,
+            "grasas": 5.24
+          },
+          "cocido": [
+            {
+              "kcal": 201,
+              "proteinas": 25.73,
+              "carbohidratos": 0,
+              "grasas": 10.12
+            }
+          ]
+        },
+        {
+          "nombre": "Bonito",
+          "crudo_seco": {
+            "kcal": 115,
+            "proteinas": 23.5,
+            "carbohidratos": 0.7,
+            "grasas": 1.3
+          },
+          "cocido": null
+        }
+      ]
+    },
+    {
+      "nombre": "Grasas",
+      "alimentos": [
+        {
+          "nombre": "Palta (Hass)",
+          "crudo_seco": {
+            "kcal": 160,
+            "proteinas": 2.0,
+            "carbohidratos": 8.5,
+            "grasas": 14.7
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Chía",
+          "crudo_seco": {
+            "kcal": 486,
+            "proteinas": 16.5,
+            "carbohidratos": 42.1,
+            "grasas": 30.7
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Linaza",
+          "crudo_seco": {
+            "kcal": 534,
+            "proteinas": 18.3,
+            "carbohidratos": 28.9,
+            "grasas": 42.4
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Aceite (oliva)",
+          "crudo_seco": {
+            "kcal": 884,
+            "proteinas": 0,
+            "carbohidratos": 0,
+            "grasas": 100
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Nueces",
+          "crudo_seco": {
+            "kcal": 679,
+            "proteinas": 14.6,
+            "carbohidratos": 10.9,
+            "grasas": 69.7
+          },
+          "cocido": null
+        }
+      ]
+    },
+    {
+      "nombre": "Carbohidratos",
+      "alimentos": [
+        {
+          "nombre": "Quinua",
+          "crudo_seco": {
+            "kcal": 368,
+            "proteinas": 14.1,
+            "carbohidratos": 64.2,
+            "grasas": 6.1
+          },
+          "cocido": [
+            {
+              "kcal": 120,
+              "proteinas": 4.4,
+              "carbohidratos": 21.3,
+              "grasas": 1.9
+            }
+          ]
+        },
+        {
+          "nombre": "Camote",
+          "crudo_seco": {
+            "kcal": 86,
+            "proteinas": 1.57,
+            "carbohidratos": 20.12,
+            "grasas": 0.05
+          },
+          "cocido": [
+            {
+              "kcal": 76,
+              "proteinas": 1.4,
+              "carbohidratos": 17.7,
+              "grasas": 0.1
+            }
+          ]
+        },
+        {
+          "nombre": "Papa",
+          "crudo_seco": {
+            "kcal": 77,
+            "proteinas": 2.1,
+            "carbohidratos": 17.5,
+            "grasas": 0.1
+          },
+          "cocido": [
+            {
+              "kcal": 52,
+              "proteinas": 1.2,
+              "carbohidratos": 11.9,
+              "grasas": 0.0
+            }
+          ]
+        },
+        {
+          "nombre": "Avena",
+          "crudo_seco": {
+            "kcal": 389,
+            "proteinas": 16.9,
+            "carbohidratos": 66.3,
+            "grasas": 6.9
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Arroz (blanco)",
+          "crudo_seco": {
+            "kcal": 365,
+            "proteinas": 7.1,
+            "carbohidratos": 80.0,
+            "grasas": 0.7
+          },
+          "cocido": [
+            {
+              "kcal": 130,
+              "proteinas": 2.7,
+              "carbohidratos": 28.2,
+              "grasas": 0.3
+            }
+          ]
+        },
+        {
+          "nombre": "Trigo (común)",
+          "crudo_seco": {
+            "kcal": 289,
+            "proteinas": 10.3,
+            "carbohidratos": 74.7,
+            "grasas": 1.9
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Espinaca",
+          "crudo_seco": {
+            "kcal": 23,
+            "proteinas": 2.9,
+            "carbohidratos": 3.6,
+            "grasas": 0.4
+          },
+          "cocido": [
+            {
+              "kcal": 23,
+              "proteinas": 3.0,
+              "carbohidratos": 3.75,
+              "grasas": 0.26
+            }
+          ]
+        },
+        {
+          "nombre": "Brócoli",
+          "crudo_seco": {
+            "kcal": 34,
+            "proteinas": 2.8,
+            "carbohidratos": 6.6,
+            "grasas": 0.4
+          },
+          "cocido": [
+            {
+              "kcal": 25,
+              "proteinas": 2.1,
+              "carbohidratos": 4.4,
+              "grasas": 0.5
+            }
+          ]
+        },
+        {
+          "nombre": "Fresa",
+          "crudo_seco": {
+            "kcal": 36,
+            "proteinas": 0.6,
+            "carbohidratos": 8.0,
+            "grasas": 0.2
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Arándanos",
+          "crudo_seco": {
+            "kcal": 64,
+            "proteinas": 0.74,
+            "carbohidratos": 14.6,
+            "grasas": 0.31
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Plátano",
+          "crudo_seco": {
+            "kcal": 144,
+            "proteinas": 1.0,
+            "carbohidratos": 40.9,
+            "grasas": 0.2
+          },
+          "cocido": [
+            {
+              "kcal": 129,
+              "proteinas": 0.7,
+              "carbohidratos": 36.8,
+              "grasas": 0.3
+            }
+          ]
+        },
+        {
+          "nombre": "Manzana",
+          "crudo_seco": {
+            "kcal": 61,
+            "proteinas": 0.17,
+            "carbohidratos": 13.7,
+            "grasas": 0.18
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Zanahoria",
+          "crudo_seco": {
+            "kcal": 41,
+            "proteinas": 1.0,
+            "carbohidratos": 9.6,
+            "grasas": 0.2
+          },
+          "cocido": [
+            {
+              "kcal": 35,
+              "proteinas": 0.7,
+              "carbohidratos": 8.2,
+              "grasas": 0.2
+            }
+          ]
+        },
+        {
+          "nombre": "Pepino",
+          "crudo_seco": {
+            "kcal": 15,
+            "proteinas": 0.7,
+            "carbohidratos": 3.6,
+            "grasas": 0.1
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Papaya",
+          "crudo_seco": {
+            "kcal": 43,
+            "proteinas": 0.7,
+            "carbohidratos": 16.0,
+            "grasas": 0.4
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Guineo Verde",
+          "crudo_seco": {
+            "kcal": 89,
+            "proteinas": 1.09,
+            "carbohidratos": 22.8,
+            "grasas": 0.33
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Fideos (pasta)",
+          "crudo_seco": {
+            "kcal": 371,
+            "proteinas": 13.0,
+            "carbohidratos": 74.7,
+            "grasas": 1.5
+          },
+          "cocido": [
+            {
+              "kcal": 158,
+              "proteinas": 5.8,
+              "carbohidratos": 30.9,
+              "grasas": 0.9
+            }
+          ]
+        },
+        {
+          "nombre": "Mandarina",
+          "crudo_seco": {
+            "kcal": 53,
+            "proteinas": 0.81,
+            "carbohidratos": 13.3,
+            "grasas": 0.31
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Azúcar (rubia)",
+          "crudo_seco": {
+            "kcal": 380,
+            "proteinas": 0.12,
+            "carbohidratos": 98.09,
+            "grasas": 0.0
+          },
+          "cocido": null
+        },
+        {
+          "nombre": "Lenteja (seca)",
+          "crudo_seco": {
+            "kcal": 165,
+            "proteinas": 8.4,
+            "carbohidratos": 18.7,
+            "grasas": 6.8
+          },
+          "cocido": [
+            {
+              "kcal": 116,
+              "proteinas": 9.0,
+              "carbohidratos": 20.1,
+              "grasas": 0.38
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

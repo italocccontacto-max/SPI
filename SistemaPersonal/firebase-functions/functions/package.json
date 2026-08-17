@@ -1,0 +1,24 @@
+{
+  "name": "sistema-personal-functions",
+  "description": "Backend de Sistema Personal/Centinela: familias, pairing seguro, sincronización y FCM.",
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test:contract": "node tests/static-contract.test.cjs",
+    "deploy": "firebase deploy --only functions,database,storage",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "^14.2.0",
+    "firebase-functions": "^7.3.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/node": "^22.15.0"
+  },
+  "private": true
+}
